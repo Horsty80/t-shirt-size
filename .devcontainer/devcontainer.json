@@ -1,5 +1,63 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "TshirtApp",
+  "name": "Tshirt-app",
   "build": { "dockerfile": "Dockerfile" },
-  "postStartCommand": "zsh"
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {},
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "React App",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "updateContentCommand": "pnpm install",
+  "postAttachCommand": "pnpm dev",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["src/App.tsx"]
+    },
+    "vscode": {
+      "extensions": [
+        "vscode-icons-team.vscode-icons",
+        "EditorConfig.EditorConfig",
+        "github.vscode-pull-request-github"
+      ]
+    },
+    "settings": {
+      "files.eol": "\n",
+      "editor.tabSize": 2,
+      "remote.extensionKind": {
+        "ms-azuretools.vscode-docker": "workspace"
+      },
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+      "editor.formatOnSave": true,
+      "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
+      "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "prettier-eslint.eslintIntegration": false
+    }
+  }
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
