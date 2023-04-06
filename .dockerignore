@@ -1,0 +1,18 @@
+# Fichiers/dossiers généraux à ignorer
+node_modules
+build
+dist
+coverage
+
+# Fichiers d'environnement à ignorer
+.env*
+.env.local
+
+# Fichiers de sauvegarde à ignorer
+*.log
+*.swp
+*.swo
+
+# Fichiers spécifiques à ignorer pour un projet TypeScript
+tsconfig.json
+tsconfig.tsbuildinfo

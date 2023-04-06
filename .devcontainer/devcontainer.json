@@ -1,3 +1,5 @@
 {
-  "build": { "dockerfile": "Dockerfile", "target": "development" }
+  "name": "TshirtApp",
+  "build": { "dockerfile": "Dockerfile" },
+  "postStartCommand": "zsh"
 }
